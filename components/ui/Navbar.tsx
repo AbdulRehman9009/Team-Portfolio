@@ -73,7 +73,7 @@ const Navbar = () => {
 
                     {/* --- CTA BUTTON --- */}
                     <div className="hidden md:block">
-                        <Link href="/contact">
+                        <Link href="/process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/923152959393'">
                             <motion.button 
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
