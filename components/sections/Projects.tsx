@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
+import Link from "next/link";
 import { FaShoppingCart, FaLaptopCode, FaTasks, FaRobot, FaArrowRight, FaExternalLinkAlt } from "react-icons/fa"
 
 interface ProjectsProps {
@@ -50,6 +51,7 @@ const Projects = ({ isVisible }: ProjectsProps) => {
 
     return (
         <section
+            id="projects"
             data-section="projects"
             className="scroll-snap-section py-24 bg-[var(--background)] relative overflow-hidden"
         >
@@ -80,14 +82,16 @@ const Projects = ({ isVisible }: ProjectsProps) => {
                             We don't just write code; we engineer digital solutions that scale, convert, and impress.
                         </motion.p>
                     </div>
-
-                    <motion.button
+                    <motion.a
+                        href={process.env.NEXT_PUBLIC_PROJECTS_URL || 'https://github.com/AbdulRehman9009'}
+                        target="_blank"
+                        rel="noopener noreferrer" 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="hidden md:flex items-center gap-2 text-[var(--primary)] font-semibold hover:text-white transition-colors"
+                        className="hidden md:flex items-center gap-2 text-[var(--primary)] font-semibold hover:text-white transition-colors cursor-pointer"
                     >
                         View Github <FaExternalLinkAlt className="text-xs" />
-                    </motion.button>
+                    </motion.a>
                 </div>
 
                 {/* --- Projects Grid --- */}
@@ -143,7 +147,9 @@ const Projects = ({ isVisible }: ProjectsProps) => {
 
                 {/* Mobile View All Button */}
                 <div className="mt-12 text-center md:hidden">
-                    <button className="text-white border-b border-[var(--primary)] pb-1">View All Projects</button>
+                    <Link href={process.env.NEXT_PUBLIC_PROJECTS_URL || "https://github.com/AbdulRehman9009"}>
+                        <button className="text-white border-b border-[var(--primary)] pb-1">View All Projects</button>
+                    </Link>
                 </div>
             </div>
         </section>

@@ -78,7 +78,7 @@ const Hero = ({ isVisible }: HeroProps) => {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                        <a href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393"} target="_blank" rel="noopener noreferrer">
+                        <a href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393"}${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ? `?text=${encodeURIComponent(process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE)}` : ""}`} target="_blank" rel="noopener noreferrer">
                             <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--primary)] text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(255,85,0,0.4)] transition-all transform hover:-translate-y-1">
                                 <FaWhatsapp className="text-xl" />
                                 Chat on WhatsApp

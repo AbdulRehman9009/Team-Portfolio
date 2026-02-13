@@ -8,11 +8,16 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
+    const name = process.env.NEXT_PUBLIC_SITE_NAME
+    const firstLetter = name?.charAt(0)
+    const firstWord = name?.split(" ")[0]
+    const lastWord = name?.split(" ")[1]
+
     const navItems = [
-        { name: 'Team', link: '/' },
-        { name: 'Projects', link: '/projects' },
-        { name: 'About', link: '/about' },
-        { name: 'Contact', link: '/contact' },
+        { name: 'Team', link: '#team' },
+        { name: 'Projects', link: '#projects' },
+        { name: 'About', link: '#about' },
+        { name: 'Contact', link: '#contact' },
     ]
 
     const menuVariants = {
@@ -29,18 +34,18 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    
+
                     {/* --- BRANDING --- */}
                     <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--primary)] to-orange-600 text-white font-bold text-xl shadow-[0_0_15px_rgba(255,85,0,0.4)] group-hover:shadow-[0_0_25px_rgba(255,85,0,0.6)] transition-all duration-300">
-                            T
+                            {firstLetter}
                         </div>
                         <div className="flex flex-col">
                             <span className="text-xl font-bold tracking-wide text-foreground leading-none">
-                                TEAM
+                                {firstWord}
                             </span>
                             <span className="text-xs uppercase tracking-[0.2em] text-[var(--primary)] font-semibold">
-                                Portfolio
+                                {lastWord}
                             </span>
                         </div>
                     </Link>
@@ -48,9 +53,9 @@ const Navbar = () => {
                     {/* --- DESKTOP MENU (With Liquid Spotlight) --- */}
                     <div className="hidden md:flex items-center gap-2 bg-white/5 rounded-full px-2 py-1.5 border border-white/5 backdrop-blur-md">
                         {navItems.map((item, index) => (
-                            <Link 
-                                key={item.name} 
-                                href={item.link} 
+                            <Link
+                                key={item.name}
+                                href={item.link}
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 className="relative px-5 py-2 text-sm font-medium transition-colors duration-300"
@@ -63,7 +68,7 @@ const Navbar = () => {
                                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                     />
                                 )}
-                                
+
                                 <span className={hoveredIndex === index ? "text-[var(--primary)]" : "text-zinc-400 hover:text-white"}>
                                     {item.name}
                                 </span>
@@ -73,15 +78,16 @@ const Navbar = () => {
 
                     {/* --- CTA BUTTON --- */}
                     <div className="hidden md:block">
-                        <Link href="/process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/923152959393'">
-                            <motion.button 
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-[var(--primary)] text-black px-6 py-2.5 rounded-full font-bold text-sm shadow-[0_0_20px_-5px_rgba(255,85,0,0.5)] hover:shadow-[0_0_30px_-5px_rgba(255,85,0,0.7)] transition-all"
-                            >
-                                Let&apos;s Talk
-                            </motion.button>
-                        </Link>
+                        <motion.a
+                            href={`${process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393"}${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ? `?text=${encodeURIComponent(process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE)}` : ""}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-[var(--primary)] text-black px-6 py-2.5 rounded-full font-bold text-sm shadow-[0_0_20px_-5px_rgba(255,85,0,0.5)] hover:shadow-[0_0_30px_-5px_rgba(255,85,0,0.7)] transition-all"
+                        >
+                            Let&apos;s Talk
+                        </motion.a>
                     </div>
 
                     {/* --- MOBILE TOGGLE --- */}
@@ -122,9 +128,9 @@ const Navbar = () => {
                                     {item.name}
                                 </Link>
                             ))}
-                            <Link 
+                            <Link
                                 href="/contact"
-                                onClick={() => setIsOpen(false)} 
+                                onClick={() => setIsOpen(false)}
                                 className="mt-4 w-full text-center bg-[var(--primary)] text-black font-bold py-4 rounded-xl text-lg"
                             >
                                 Let&apos;s Talk

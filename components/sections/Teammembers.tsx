@@ -67,6 +67,7 @@ const Teammembers = ({ isVisible }: TeammembersProps) => {
 
     return (
         <section
+            id="team"
             data-section="team"
             className="scroll-snap-section py-20 bg-[var(--background)] relative overflow-hidden"
         >

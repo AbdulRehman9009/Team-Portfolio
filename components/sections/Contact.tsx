@@ -57,7 +57,7 @@ const Contact = ({ isVisible }: ContactProps) => {
             type: "WhatsApp",
             value: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+92 315 295 9393",
             icon: FaWhatsapp,
-            link: process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393",
+            link: `${process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393"}${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ? `?text=${encodeURIComponent(process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE)}` : ""}`,
             color: "group-hover:text-green-400"
         },
         {
@@ -182,7 +182,7 @@ const Contact = ({ isVisible }: ContactProps) => {
                                         onChange={handleChange}
                                         type="email"
                                         placeholder="john@example.com"
-                                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-(--primary) focus:ring-1 focus:ring-(--primary) transition-all"
+                                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-all"
                                     />
                                 </div>
                             </div>

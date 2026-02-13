@@ -5,10 +5,12 @@ import { motion } from "motion/react"
 
 export default function WhatsAppButton() {
     const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/923152959393"
+    const whatsappMessage = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE
+    const fullUrl = whatsappMessage ? `${whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}` : whatsappUrl
 
     return (
         <motion.a
-            href={whatsappUrl}
+            href={fullUrl}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ scale: 0 }}
@@ -21,7 +23,7 @@ export default function WhatsAppButton() {
         >
             <FaWhatsapp className="text-3xl group-hover:scale-110 transition-transform" />
 
-            
+
             <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping" />
         </motion.a>
     )
