@@ -7,15 +7,15 @@ import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 const Footer = () => {
   const footerLinks = [
     { name: 'Home', link: '/' },
-    { name: 'Projects', link: '/projects' },
-    { name: 'About', link: '/about' },
-    { name: 'Contact', link: '/contact' },
+    { name: 'Projects', link: '#projects' },
+    { name: 'About', link: '#about' },
+    { name: 'Contact', link: '#contact' },
   ]
 
   const name = process.env.NEXT_PUBLIC_SITE_NAME
   const firstLetter = name?.charAt(0)
   const firstWord = name?.split(" ")[0]
-  const lastWord = name?.split(" ")[1]
+  // const lastWord = name?.split(" ")[1]
 
   return (
     <footer className="bg-[var(--background)] border-t border-[var(--border)] pt-16 pb-8 relative overflow-hidden">
@@ -46,12 +46,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.map((item) => (
                 <li key={item.name}>
-                  <Link
+                  <a
                     href={item.link}
                     className="text-zinc-400 hover:text-[var(--primary)] hover:pl-2 transition-all duration-300 inline-block"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

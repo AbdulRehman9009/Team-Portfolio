@@ -106,11 +106,9 @@ const Hero = ({ isVisible }: HeroProps) => {
 
                     {/* Image Container */}
                     <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-900/50 backdrop-blur-sm">
-                        {/* NOTE: Make sure 'hero.png' is in your /public folder. 
-                            If you don't have one yet, this div acts as a placeholder.
-                        */}
+                        
                         <Image
-                            src="/hero.png"
+                            src="/4760073.jpg"
                             alt="Team working on digital product"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-700"

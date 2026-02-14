@@ -13,31 +13,31 @@ const Teammembers = ({ isVisible }: TeammembersProps) => {
         {
             name: "AbdulRahman",
             role: "Full Stack Developer",
-            image: "/team/abdulrahman.jpg",
+            image: "/team/avatar.png",
             description: "Expertise in both frontend and backend technologies, building seamless user experiences."
         },
         {
             name: "Javeria",
             role: "UI/UX Designer",
-            image: "/team/javeria.jpg",
+            image: "/team/avatar (1).png",
             description: "Specializes in creating visually stunning interfaces with a keen eye for user-centric detail."
         },
         {
             name: "Ali",
             role: "SEO Specialist",
-            image: "/team/ali.jpg",
+            image: "/team/avatar (2).png",
             description: "Helps businesses improve online visibility using data-driven organic traffic strategies."
         },
         {
             name: "Abdullah",
             role: "Automation Engineer",
-            image: "/team/abdullah.jpg",
+            image: "/team/avatar.png",
             description: "Focuses on streamlining processes and improving efficiency with scalable automation tools."
         },
         {
             name: "Sara",
             role: "Data Analyst",
-            image: "/team/sara.jpg",
+            image: "/team/avatar (3).png",
             description: "Interprets complex data sets to provide actionable insights for informed decision making."
         },
     ]
